@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'sales_app'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin'
+      MYSQL_ROOT_PASSWORD: 'admin2022'
+      TZ: UTC
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3309:3306'
+#  localstack:
+#    image: localstack/localstack:latest
+#    container_name: localstack_demo
+#    ports:
+#      - '4563-4599:4563-4599'
+#      - '8055:8080'
+#    environment:
+#      - SERVICES=s3
+#      - DEBUG=1
+#      - DATA_DIR=/tmp/localstack/data
+#      - DISABLE_CORS_CHECKS=1
+#    volumes:
+#      - './.localstack:/tmp/localstack/data'
+#      - '/var/run/docker.sock:/var/run/docker.sock'
+#  s3manager:
+#    image: mastertinner/s3manager
+#    ports:
+#      - '8001:8080'
+#    environment:
+#      - ENDPOINT=localstack:4566
+#      - ACCESS_KEY_ID=test
+#      - SECRET_ACCESS_KEY=test
+#      - USE_SSL=false
+#    depends_on:
+#      - localstack
