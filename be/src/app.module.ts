@@ -6,12 +6,12 @@ import { ConfigModule } from './@config';
 import { ExampleModule } from './example/example.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    MysqlDatabaseModule.forRoot(),
-    ExampleModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        ConfigModule.forRoot(),
+        MysqlDatabaseModule.forRoot(),
+        ExampleModule,
+    ],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}
