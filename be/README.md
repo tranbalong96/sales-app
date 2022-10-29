@@ -58,16 +58,20 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Enties
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- In folder @entity create new folder and new entity
+- After implement this entity, import entity to index like example entity to create new table in database
 
-## Stay in touch
+## Generate new module
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+# create new module
+$ nest g module {module_name}
 
-## License
+# create new controller
+$ nest g controller {controller_name}
 
-Nest is [MIT licensed](LICENSE).
+# create new service
+$ nest g service {service_name}
+```
