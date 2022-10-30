@@ -1,0 +1,11 @@
+::ng-deep .main-spin > div > .ant-spin {
+  height: calc(100vh - 100px);
+  max-height: unset;
+  z-index: 999999999;
+}
+.floating-alert {
+  width: 30%;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
