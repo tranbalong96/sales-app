@@ -1,3 +1,4 @@
+import { HomePageComponent } from './home-page/home-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login-page/login-page.component';
@@ -13,12 +14,20 @@ export const ROUTES: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/homepage',
+        redirectTo: '/home-page',
       },
       {
         path: 'login',
         canActivate: [],
         component: LoginComponent,
+      },
+      {
+        path: 'home-page',
+        canActivate: [],
+        loadChildren: () =>
+          import('src/app/pages/home-page/home-page-routing.module').then(
+            (m) => m.HomePageRoutingModule
+          ),
       },
     ],
   },
