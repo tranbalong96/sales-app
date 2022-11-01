@@ -12,8 +12,8 @@ export const ROUTES: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('src/app/features/admin-routing.module').then(
-            (m) => m.AdminRoutingModule
+          import('src/app/features/home-routing.module').then(
+            (m) => m.HomeRoutingModule
           ),
       },
     ],

@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
 import { ClarityModule } from '@clr/angular';
 import { RouterModule } from '@angular/router';
-import { AdminComponent } from 'src/app/features/admin.component';
 
 @NgModule({
   declarations: [
