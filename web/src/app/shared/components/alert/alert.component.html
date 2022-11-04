@@ -1,0 +1,39 @@
+<div class="alert-component">
+  <div class="alert alert-danger" role="alert">
+    <div *ngFor="let alert of alerts" class="{{ cssClass(alert) }}">
+      <div class="alert-items">
+        <div class="alert-item static">
+          <!-- <div class="alert-icon-wrapper" [ngSwitch]="type">
+                <cds-icon
+                    *ngSwitchCase="EALERT.DANGER"
+                    class="alert-icon"
+                    shape="exclamation-circle"
+                  ></cds-icon>
+                  <cds-icon
+                    *ngSwitchCase="EALERT.WARNING"
+                    class="alert-icon"
+                    shape="exclamation-triangle"
+                  ></cds-icon>
+                  <cds-icon
+                    *ngSwitchCase="EALERT.INFO"
+                    class="alert-icon"
+                    shape="info-circle"
+                  ></cds-icon>
+                  <cds-icon
+                    *ngSwitchCase="EALERT.SUCCESS"
+                    class="alert-icon"
+                    shape="check-circle"
+                  ></cds-icon>
+              </div> -->
+          <!-- <span class="alert-text">{{ alert.message }}</span> -->
+          <span [innerHTML]="alert.message"></span>
+        </div>
+      </div>
+      <button type="button" class="close" aria-label="Close">
+        <cds-icon aria-hidden="true" shape="close"></cds-icon>
+      </button>
+      <!-- <a class="close" (click)="removeAlert(alert)">&times;</a>
+          <span [innerHTML]="alert.message"></span> -->
+    </div>
+  </div>
+</div>
