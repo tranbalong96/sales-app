@@ -1,7 +1,6 @@
 import { AlertService } from 'src/app/core/services/alert.service';
 import { Component, OnInit } from '@angular/core';
 import { LoadingService } from 'src/app/core/services/loading.service';
-import { EALERT } from 'src/app/core/enums/alert.enum';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,13 +22,9 @@ export class DashboardComponent implements OnInit {
     setTimeout(() => {
       this.loadingService.setLoading(false);
     }, 3000);
-    this.alertService.success('123', {
-      autoClose: true,
-      keepAfterRouteChange: false,
-    });
-    // this.alertService.show(EALERT.SUCCESS, 'test success');
-    // this.alertService.show(EALERT.INFO, 'test info');
-    // this.alertService.show(EALERT.DANGER, 'test danger');
-    // this.alertService.show(EALERT.WARNING, 'test warning');
+    this.alertService.success('123');
+    this.alertService.warn('5345');
+    this.alertService.error('567567');
+    this.alertService.info('687867');
   }
 }

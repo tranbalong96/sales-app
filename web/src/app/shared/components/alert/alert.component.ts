@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AlertType, EALERT } from 'src/app/core/enums/alert.enum';
+import { AlertType } from 'src/app/core/enums/alert.enum';
 import { Alert } from 'src/app/core/models/alert.model';
 import { AlertService } from 'src/app/core/services/alert.service';
 
@@ -11,49 +11,13 @@ import { AlertService } from 'src/app/core/services/alert.service';
   styleUrls: ['./alert.component.scss'],
 })
 export class AlertComponent implements OnInit, OnDestroy {
-  // @Input() type: EALERT = EALERT.INFO;
-  // @Input() content: string = '';
-  // @Input() isAlert: boolean = false;
-  // EALERT = EALERT;
-  // constructor() {}
-
-  // getClassType(): string {
-  //   switch (this.type) {
-  //     case EALERT.SUCCESS:
-  //       return 'alert-success';
-  //     case EALERT.DANGER:
-  //       return 'alert-danger';
-  //     case EALERT.INFO:
-  //       return 'alert-info';
-  //     case EALERT.WARNING:
-  //       return 'alert-warning';
-  //     default:
-  //       return '';
-  //   }
-  // }
-
-  // getIcon(): string {
-  //   switch (this.type) {
-  //     case EALERT.SUCCESS:
-  //       return 'check-circle';
-  //     case EALERT.DANGER:
-  //       return 'exclamation-toggle';
-  //     case EALERT.INFO:
-  //       return 'info-circle';
-  //     case EALERT.WARNING:
-  //       return 'exclamation-triangle';
-  //     default:
-  //       return '';
-  //   }
-  // }
-
   @Input() id = 'default-alert';
   @Input() fade = true;
 
   alerts: Alert[] = [];
   alertSubscription!: Subscription;
   routeSubscription!: Subscription;
-
+  AlertType = AlertType;
   constructor(private router: Router, private alertService: AlertService) {}
 
   ngOnInit() {
@@ -123,10 +87,10 @@ export class AlertComponent implements OnInit, OnDestroy {
     const classes = ['alert', 'alert-dismissable'];
 
     const alertTypeClass = {
-      [AlertType.Success]: 'alert alert-app-level alert-success',
-      [AlertType.Error]: 'alert alert-app-level alert-danger',
-      [AlertType.Info]: 'alert alert-app-level alert-info',
-      [AlertType.Warning]: 'alert alert-app-level alert-warning',
+      [AlertType.Success]: 'alert alert-success',
+      [AlertType.Error]: 'alert alert-danger',
+      [AlertType.Info]: 'alert alert-info',
+      [AlertType.Warning]: 'alert alert-warning',
     };
 
     classes.push(alertTypeClass[alert.type]);

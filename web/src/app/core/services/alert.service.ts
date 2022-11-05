@@ -1,39 +1,3 @@
-// import { Subject } from 'rxjs';
-// import { Injectable } from '@angular/core';
-// import { EALERT } from '../enums/alert.enum';
-// import { Alert } from '../models/alert.model';
-
-// @Injectable({ providedIn: 'root' })
-// export class AlertService {
-//   observer = new Subject<{ type: EALERT; content: string }>();
-//   private subject = new Subject<Alert>();
-//   private defaultId = 'default-alert';
-//   public subscriber$ = this.observer.asObservable();
-
-//   /**
-//    * @description show aleart
-//    */
-//   show(type: EALERT, content: string): void {
-//     this.observer.next({ type, content });
-//   }
-
-//   // convenience methods
-//   success(content: string) {
-//     this.observer.next({ type: EALERT.SUCCESS, content });
-//   }
-
-//   error(content: string) {
-//     this.observer.next({ type: EALERT.DANGER, content });
-//   }
-
-//   info(content: string) {
-//     this.observer.next({ type: EALERT.INFO, content });
-//   }
-
-//   warn(content: string) {
-//     this.observer.next({ type: EALERT.WARNING, content });
-//   }
-// }
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -44,26 +8,29 @@ import { Alert } from '../models/alert.model';
 export class AlertService {
   private subject = new Subject<Alert>();
   private defaultId = 'default-alert';
-
+  options = {
+    autoClose: true,
+    keepAfterRouteChange: false,
+  };
   // enable subscribing to alerts observable
   onAlert(id = this.defaultId): Observable<Alert> {
     return this.subject.asObservable().pipe(filter((x) => x && x.id === id));
   }
 
   // convenience methods
-  success(message: string, options?: any) {
+  success(message: string, options = this.options) {
     this.alert(new Alert({ ...options, type: AlertType.Success, message }));
   }
 
-  error(message: string, options?: any) {
+  error(message: string, options = this.options) {
     this.alert(new Alert({ ...options, type: AlertType.Error, message }));
   }
 
-  info(message: string, options?: any) {
+  info(message: string, options = this.options) {
     this.alert(new Alert({ ...options, type: AlertType.Info, message }));
   }
 
-  warn(message: string, options?: any) {
+  warn(message: string, options = this.options) {
     this.alert(new Alert({ ...options, type: AlertType.Warning, message }));
   }
 
