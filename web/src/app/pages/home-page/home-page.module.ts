@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
 import { ClarityModule } from '@clr/angular';
 import { RouterModule } from '@angular/router';
+import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     FooterComponent,
     NavbarComponent,
+    AlertComponent,
   ],
   imports: [CommonModule, ClarityModule, RouterModule],
 })
