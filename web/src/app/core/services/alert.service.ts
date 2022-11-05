@@ -9,6 +9,7 @@ export class AlertService {
   private subject = new Subject<Alert>();
   private defaultId = 'default-alert';
   options = {
+    // alway show when param is false
     autoClose: true,
     keepAfterRouteChange: false,
   };
@@ -18,20 +19,44 @@ export class AlertService {
   }
 
   // convenience methods
-  success(message: string, options = this.options) {
-    this.alert(new Alert({ ...options, type: AlertType.Success, message }));
+  success(message: string, title = 'SUCCESS', options = this.options) {
+    const alertSuccess = new Alert({
+      ...options,
+      type: AlertType.Success,
+      message,
+      title,
+    });
+    this.alert(alertSuccess);
   }
 
-  error(message: string, options = this.options) {
-    this.alert(new Alert({ ...options, type: AlertType.Error, message }));
+  error(message: string, title = 'ERROR', options = this.options) {
+    const alertError = new Alert({
+      ...options,
+      type: AlertType.Error,
+      message,
+      title,
+    });
+    this.alert(alertError);
   }
 
-  info(message: string, options = this.options) {
-    this.alert(new Alert({ ...options, type: AlertType.Info, message }));
+  info(message: string, title = 'NOTICE', options = this.options) {
+    const alertInfo = new Alert({
+      ...options,
+      type: AlertType.Info,
+      message,
+      title,
+    });
+    this.alert(alertInfo);
   }
 
-  warn(message: string, options = this.options) {
-    this.alert(new Alert({ ...options, type: AlertType.Warning, message }));
+  warn(message: string, title = 'WARNING', options = this.options) {
+    const alertWarn = new Alert({
+      ...options,
+      type: AlertType.Warning,
+      message,
+      title,
+    });
+    this.alert(alertWarn);
   }
 
   // main alert method

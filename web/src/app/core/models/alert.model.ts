@@ -2,6 +2,7 @@ import { AlertType } from '../enums/alert.enum';
 
 export class Alert {
   id!: string;
+  title!: string;
   type!: AlertType;
   message!: string;
   autoClose!: boolean;

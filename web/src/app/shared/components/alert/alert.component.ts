@@ -101,4 +101,25 @@ export class AlertComponent implements OnInit, OnDestroy {
 
     return classes.join(' ');
   }
+
+  cssClassTextAlert(alert: Alert) {
+    if (!alert) return;
+
+    const classes = [];
+
+    const alertTypeClass = {
+      [AlertType.Success]: 'text-success',
+      [AlertType.Error]: 'text-error',
+      [AlertType.Info]: 'text-info',
+      [AlertType.Warning]: 'text-warning',
+    };
+
+    classes.push(alertTypeClass[alert.type]);
+
+    if (alert.fade) {
+      classes.push('fade');
+    }
+
+    return classes.join(' ');
+  }
 }

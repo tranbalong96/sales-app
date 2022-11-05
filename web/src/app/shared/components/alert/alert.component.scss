@@ -3,4 +3,32 @@
   z-index: 999999;
   width: 30%;
   right: 10px;
+  .text-content {
+    font-size: 1.2em;
+    padding-top: 5px;
+  }
+  .alert-items {
+    padding: 1rem 0.55rem !important;
+    .alert-item {
+      flex-wrap: wrap !important;
+    }
+  }
+  .text-success {
+    color: green;
+  }
+  .text-warning {
+    color: orange;
+  }
+  .text-error {
+    color: red;
+  }
+  .text-info {
+    color: blue;
+  }
+  .text-title {
+    font-weight: 800;
+    font-size: 1.4em;
+  }
+  .ico-close {
+  }
 }

@@ -8,10 +8,6 @@ import { LoadingService } from 'src/app/core/services/loading.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  options = {
-    autoClose: false,
-    keepAfterRouteChange: false,
-  };
   constructor(
     private loadingService: LoadingService,
     private alertService: AlertService
@@ -22,9 +18,9 @@ export class DashboardComponent implements OnInit {
     setTimeout(() => {
       this.loadingService.setLoading(false);
     }, 3000);
-    this.alertService.success('123');
-    this.alertService.warn('5345');
-    this.alertService.error('567567');
-    this.alertService.info('687867');
+    this.alertService.success('This is alert success');
+    this.alertService.warn('This is alert warning');
+    this.alertService.error('This is alert error');
+    this.alertService.info('This is alert info', 'Info title');
   }
 }
