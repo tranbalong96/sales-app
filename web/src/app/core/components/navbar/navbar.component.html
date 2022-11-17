@@ -1,18 +1,72 @@
-<div class="content-container">
-  <clr-vertical-nav class="navbar-container">
-    <a clrVerticalNavLink routerLink="./dashboard" routerLinkActive="active"
-      >Dashboard</a
-    >
-
-    <a clrVerticalNavLink routerLink="./beatles" routerLinkActive="active"
-      >Beatles</a
-    >
-
-    <a clrVerticalNavLink routerLink="./revolver" routerLinkActive="active"
-      >Revolver</a
-    >
-  </clr-vertical-nav>
-  <div class="content-area">
-    <router-outlet></router-outlet>
+<clr-vertical-nav [clrVerticalNavCollapsible]="true" class="navbar-container">
+  <div *ngFor="let data of navbarData">
+    <div *ngIf="data.child && data.child.length">
+      <clr-vertical-nav-group routerLinkActive="active">
+        <clr-icon [attr.shape]="data.icon" clrVerticalNavIcon></clr-icon>
+        {{ data.title }}
+        <clr-vertical-nav-group-children>
+          <div *ngFor="let child of data.child">
+            <a
+              clrVerticalNavLink
+              [routerLink]="child.link"
+              routerLinkActive="active"
+            >
+              <cds-icon [attr.shape]="child.icon"></cds-icon>
+              {{ child.title }}
+            </a>
+          </div>
+        </clr-vertical-nav-group-children>
+      </clr-vertical-nav-group>
+    </div>
+    <div *ngIf="!data.child">
+      <a clrVerticalNavLink routerLinkActive="active" [routerLink]="data.link">
+        <cds-icon [attr.shape]="data.icon"></cds-icon>
+        {{ data.title }}
+      </a>
+    </div>
   </div>
-</div>
+  <!-- <clr-vertical-nav-group routerLinkActive="active">
+    <clr-icon shape="flame" clrVerticalNavIcon></clr-icon>
+    Fire
+    <clr-vertical-nav-group-children>
+      <a
+        clrVerticalNavLink
+        routerLink="./fire/charmander"
+        routerLinkActive="active"
+      >
+        Charmander
+      </a>
+      <a
+        clrVerticalNavLink
+        routerLink="./fire/charizard"
+        routerLinkActive="active"
+      >
+        Charizard
+      </a>
+    </clr-vertical-nav-group-children>
+  </clr-vertical-nav-group>
+  <clr-vertical-nav-group routerLinkActive="active">
+    <clr-icon shape="bolt" clrVerticalNavIcon></clr-icon>
+    Electric
+    <clr-vertical-nav-group-children>
+      <a
+        clrVerticalNavLink
+        routerLink="./electric/pikachu"
+        routerLinkActive="active"
+      >
+        Pikachu
+      </a>
+      <a
+        clrVerticalNavLink
+        routerLink="./electric/raichu"
+        routerLinkActive="active"
+      >
+        Raichu
+      </a>
+    </clr-vertical-nav-group-children>
+  </clr-vertical-nav-group>
+  <a clrVerticalNavLink routerLinkActive="active" routerLink="./credit">
+    <clr-icon shape="certificate" clrVerticalNavIcon></clr-icon>
+    Credit
+  </a> -->
+</clr-vertical-nav>

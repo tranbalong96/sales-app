@@ -6,6 +6,28 @@ import {
   Inject,
   Renderer2,
 } from '@angular/core';
+import {
+  ClarityIcons,
+  userIcon,
+  homeIcon,
+  vmBugIcon,
+  cogIcon,
+  eyeIcon,
+  dashboardIcon,
+  viewCardsIcon,
+  crosshairsIcon,
+} from '@cds/core/icon';
+
+ClarityIcons.addIcons(
+  userIcon,
+  homeIcon,
+  vmBugIcon,
+  cogIcon,
+  eyeIcon,
+  dashboardIcon,
+  viewCardsIcon,
+  crosshairsIcon
+);
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
